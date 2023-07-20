@@ -1,0 +1,29 @@
+directories:
+  output: Built
+  buildResources: build
+  app: dist_electron/bundled
+files:
+  - filter:
+      - '**'
+extends: null
+appId: gg.jules.juleslauncher
+productName: JulesApp
+artifactName: JulesApp-Setup-${version}.${ext}
+win:
+  icon: src/assets/jicon.png
+  requestedExecutionLevel: requireAdministrator
+  target: nsis
+nsis:
+  oneClick: false
+  perMachine: true
+  allowToChangeInstallationDirectory: true
+  allowElevation: true
+  runAfterFinish: false
+publish:
+  - provider: github
+    owner: JDigabri
+    repo: Jules
+    releaseType: release
+    private: true
+    token: <stripped sensitive data>
+electronVersion: 13.6.9
